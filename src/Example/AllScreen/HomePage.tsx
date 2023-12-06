@@ -381,7 +381,7 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
     const freshArivals = () => {
         return (
             <View>
-                <View style={{ flexDirection: "row", }}>
+                <View style={{ flexDirection: "row", width: Dimensions.get('screen').width }}>
                     <Text style={style.featuretext1}> Fresh Arrivals </Text>
                     <TouchableOpacity style={[style.featuretext2]} onPress={() => navigation.navigate('ExampleFreshArrivalAllProduct')} >
                         <Text style={{ color: "black", fontSize: 20, padding: 0 }} > View All </Text>
@@ -418,7 +418,7 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
 
         return (
             <View>
-                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: 'grey' }}>
+                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: 'grey', width: Dimensions.get('screen').width }}>
                     <Text style={style.topproducttext1}> Top Products</Text>
                     <TouchableOpacity style={[style.topproducttext2,]}>
                         <Text style={{ fontSize: 20, color: 'black', }} onPress={() => navigation.navigate('ExampleTopAllProduct')}> View All </Text>
@@ -451,7 +451,7 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
     const featureProducts = () => {
         return (
             <View>
-                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: 'grey', top: 5 }}>
+                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: 'grey', top: 5, width: Dimensions.get('screen').width }}>
                     <Text style={style.topproducttext1}>Feature Product </Text>
                     <TouchableOpacity style={{ left: 140, top: 5 }} onPress={() => navigation.navigate('ExampleFeatureAllProduct')}>
                         <Text style={{ fontSize: 18, color: "black", fontWeight: '800', }} > View All </Text>
@@ -486,7 +486,7 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
 
         return (
             <View>
-                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: "grey", bottom: 0, top: 5 }}>
+                <View style={{ flexDirection: "row", padding: 10, borderWidth: 0.5, borderColor: "grey", bottom: 0, top: 5, width: Dimensions.get('screen').width }}>
                     <Text style={style.trendingproducttext1}> Trending Products</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('ExampleTrendingAllProduct')} style={style.trendingproducttext2} >
                         <Text style={{ color: 'black', fontSize: 20 }} > View All </Text>
@@ -554,16 +554,14 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
             <View style={{ justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
                 <FlatList
                     numColumns={2}
-                    style={{ top: 0, borderColor: "black", borderWidth: 0.5, width: 380, }}
+                    style={{ top: 0, borderColor: "black", borderWidth: 0.5, width: '95%', }}
                     data={discountOffer}
                     showsVerticalScrollIndicator={false}
                     keyExtractor={(item: any) => item.id}
                     renderItem={({ item, index }: { item: any, index: any }) => {
                         return (
                             <TouchableOpacity style={style.renderoffercontainer} onPress={() => navigation.navigate('ExampleProductByDiscount', { start_discount: item.start_discount, end_discount: item.end_discount, title: item.title, })}>
-
                                 <Text style={style.renderoffertitle}>{item.title}</Text>
-
                                 {/* <View style={{ borderLeftWidth: 0.5, height: 30, right: 15, bottom: 10 }} /> */}
                             </TouchableOpacity>
                         )
@@ -609,8 +607,9 @@ const HomePage = ({ navigation, route, navigation: { goBack, canGoBack } }: { na
                     </TouchableOpacity>
                 </View>
             </View>
-            {skeleton ? (<SkeltonEffect />) : (<ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={refresh} onRefresh={() => Onrefresh()} />} contentContainerStyle={{ paddingBottom: 10,top:5
-             }} ref={ScrollRef}>
+            {skeleton ? (<SkeltonEffect />) : (<ScrollView showsVerticalScrollIndicator={false} refreshControl={<RefreshControl refreshing={refresh} onRefresh={() => Onrefresh()} />} contentContainerStyle={{
+                paddingBottom: 10, top: 5
+            }} ref={ScrollRef}>
                 <View style={style.container}>
                     <TouchableOpacity onPress={() => navigation.navigate('ExampleSearch')} style={style.searchContainer}>
                         <Icon name='search' color={'black'} size={30} style={{ margin: 10, top: 0 }} />
@@ -710,7 +709,7 @@ const style = StyleSheet.create({
         bottom: 1,
         top: 0,
         margin: 5,
-        backgroundColor:'white'
+        backgroundColor: 'white'
 
     },
     notificationIconView: {

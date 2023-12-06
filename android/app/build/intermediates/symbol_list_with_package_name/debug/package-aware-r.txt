@@ -2355,7 +2355,6 @@ mipmap ic_launcher_monochrome
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw firebase_common_keep
-raw iphone
 raw rzp_config
 string abc_action_bar_home_description
 string abc_action_bar_up_description

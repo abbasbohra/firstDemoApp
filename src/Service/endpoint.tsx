@@ -1,4 +1,3 @@
-// export const BASE_URL = 'https://admin.fashionleo.in/api/v2/'
 export const BASE_URL = 'https://fashion-leo.servepratham.com/api/v2/'
 
 

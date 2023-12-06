@@ -19,7 +19,7 @@ const DisplayNotification = async ({ body }: { body: any }) => {
         // body: body,
         android: {
             channelId,
-            sound: 'iphone',
+            sound: 'default',
             style: { type: AndroidStyle.BIGTEXT, text: body },
 
             pressAction: {

@@ -128,7 +128,7 @@ const Profile = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={style.container}>
-      <Header title='My Account' showShadow={true} searchLeft={5} cartleft={-10} onpress={() => navigation.navigate('HomePage')} />
+      <Header title='My Account' showShadow={true} searchLeft={0} cartleft={0} onpress={() => navigation.navigate('HomePage')} />
       {loading ? (
 
         <SkelatonEffectProfile />
@@ -137,8 +137,8 @@ const Profile = ({ navigation }: { navigation: any }) => {
         (< ScrollView contentContainerStyle={{ top: 1, paddingBottom: 30 }} showsVerticalScrollIndicator={false}>
           <View style={{ backgroundColor: "white" }}>
             <Text style={{ color: 'black', margin: 10, fontSize: 20, fontWeight: '900' }}> {user?.name?.toUpperCase()}</Text>
-            <Icon name='pencil' style={{ position: "absolute", top: 12, left: 320 }} size={22} color={'#27AAE1'} onPress={() => navigation.navigate('EditProfile')} />
-            <View style={{ paddingBottom: 30, bottom: 0 }}>
+            <Icon name='pencil' style={{ alignSelf:"flex-end", top: -40, left:  -50}} size={22} color={'#27AAE1'} onPress={() => navigation.navigate('EditProfile')} />
+            <View style={{ paddingBottom: 10, bottom: 30,width:Dimensions.get('screen').width }}>
               <View style={{ paddingBottom: 0, top: 10 }}>
                 <FlatList
                   data={OptionsData}
@@ -148,7 +148,7 @@ const Profile = ({ navigation }: { navigation: any }) => {
                   renderItem={({ item, index }) => {
                     return (
                       <View>
-                        <TouchableOpacity onPress={() => item.navigationScreen == '' ? null : navigation.navigate(item.navigationScreen)} style={{ flexDirection: 'row', borderWidth: 1, borderColor: 'silver', width: 190, height: 40, margin: 8 }}>
+                        <TouchableOpacity onPress={() => item.navigationScreen == '' ? null : navigation.navigate(item.navigationScreen)} style={{ flexDirection: 'row', borderWidth: 1, borderColor: 'silver', width: Dimensions.get('screen').width-'210', height: 40, margin: 8 }}>
                           <View style={{ width: 30, height: 30, margin: 5 }}>
                             <Image source={item.icon} style={{ width: 25, height: 25, tintColor: "#27AAE1" }} />
                           </View>
@@ -165,7 +165,7 @@ const Profile = ({ navigation }: { navigation: any }) => {
               </View>
             </View>
           </View>
-          <View style={{ top: 1, backgroundColor: 'white', paddingBottom: 0 }}>
+          <View style={{ top: 0, backgroundColor: 'white', paddingBottom: 0,width:Dimensions.get('screen').width }}>
             <TouchableOpacity onPress={() => manageAccountVisivble ? setManageAccountVisible(false) : setManageAccountVisible(true)}>
               <Feather name='edit' color={'#27AAE1'} size={30} style={{ position: "absolute", margin: 10 }} />
               <Text style={{ color: 'black', fontSize: 15, margin: 15, left: 30, fontWeight: '800' }}> Manage Account</Text>
@@ -195,7 +195,7 @@ const Profile = ({ navigation }: { navigation: any }) => {
                 />
               </View> : null}
           </View>
-          <View style={{ backgroundColor: "white", top: 2, paddingBottom: manageSettingVisible ? 20 : 0 }}>
+          <View style={{ backgroundColor: "white", top: 0, paddingBottom: manageSettingVisible ? 20 : 0 ,width:Dimensions.get('screen').width}}>
             <TouchableOpacity onPress={() => manageSettingVisible ? setManagaSettingVisible(false) : setManagaSettingVisible(true)}>
               <Text style={{ color: 'black', margin: 15, fontSize: 20, fontWeight: '800', left: 30 }}> Setting </Text>
               <Feather name='settings' style={{ position: "absolute", margin: 15 }} size={27} color={'#27AAE1'} />
@@ -233,7 +233,7 @@ const Profile = ({ navigation }: { navigation: any }) => {
               </TouchableOpacity >
             </View> : null}
           </View>
-          <View style={{ paddingBottom: 40, top: 3.5, backgroundColor: "white" }}>
+          <View style={{ paddingBottom: 40, top: 0, backgroundColor: "white" }}>
             <FlatList
               data={cmsDetail}
               keyExtractor={(item: any) => item.id}

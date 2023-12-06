@@ -12,12 +12,13 @@ type user = {
     Name: string
     Email: string
     profile: string
+    wallet_balance: any
 }
 
 const UserWallet = ({ navigation }: { navigation: any }) => {
     const [cartList, setCartList] = useState([]);
     const [userId, setUserId] = useState('');
-    const [user, setUser] = useState<user>([])
+    const [user, setUser] = useState<user[]>()
     const [refresh, setRefresh] = useState(false)
     const getCartProduct = async () => {
         const data = {
@@ -63,7 +64,7 @@ const UserWallet = ({ navigation }: { navigation: any }) => {
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
             <Header title='My Wallet' cartleft={-10} searchLeft={5} showShadow={true} onpress={() => navigation.goBack()} />
-            <ScrollView  contentContainerStyle={{backgroundColor:'white',paddingBottom:20,top:10}} refreshControl={<RefreshControl refreshing={refresh} onRefresh={onRefresh} />}>
+            <ScrollView contentContainerStyle={{ backgroundColor: 'white', paddingBottom: 20, top: 10 }} refreshControl={<RefreshControl refreshing={refresh} onRefresh={onRefresh} />}>
                 <View style={{ width: '90%', paddingBottom: 150, backgroundColor: '#27AAE1', margin: 20, top: 26, borderRadius: 10 }}>
                     <Text style={{ color: "white", margin: 10, fontSize: 20, fontWeight: "800" }}> Wallet Balance </Text>
                     <Text style={{ color: "white", fontWeight: "800", left: 20, fontSize: 20 }}> ₹{user?.wallet_balance == '' ? 0 : user?.wallet_balance}</Text>

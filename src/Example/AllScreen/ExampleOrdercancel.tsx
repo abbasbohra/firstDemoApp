@@ -92,7 +92,7 @@ const ExampleOrdercancel = ({ route, navigation }: { route: any, navigation: any
             body: `Hope to see you soon 😭`,
             android: {
                 channelId,
-                sound: 'iphone',
+                sound: 'default',
                 pressAction: {
                     id: 'default',
                 },

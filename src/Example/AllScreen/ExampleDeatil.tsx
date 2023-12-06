@@ -170,7 +170,7 @@ const ExampleDeatil = ({ route, navigation }: { route: any, navigation: any }) =
         const channelId = await notifee.createChannel({
             id: 'default',
             name: 'Default Channel',
-            sound: 'iphone',
+            sound: 'default',
             importance: AndroidImportance.HIGH,
             badge: true,
             // vibration: false,
@@ -184,7 +184,7 @@ const ExampleDeatil = ({ route, navigation }: { route: any, navigation: any }) =
             body: `${product?.product_name} Add in cart`,
             android: {
                 channelId,
-                sound: 'iphone',
+                sound:'default',
                 style: { type: AndroidStyle.BIGPICTURE, picture: product?.ImageSrc },
                 pressAction: {
                     id: 'default',

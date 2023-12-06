@@ -262,7 +262,7 @@ const CheckOut = ({ navigation, route }: { navigation: any, route: any }) => {
         })
     }
 
-   
+
 
     useEffect(() => {
         getSaveDataFromLocal();
